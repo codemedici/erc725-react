@@ -1,7 +1,7 @@
 require('babel-register');
 require('babel-polyfill');
 // // storing the API key (remember to add dotenv to gitignore) 
-// require('dotenv').config();
+require('dotenv').config();
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 // const privateKeys = process.env.PRIVATE_KEYS || ""
 
