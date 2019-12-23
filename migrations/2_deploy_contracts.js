@@ -1,13 +1,13 @@
-// const Token = artifacts.require("Token");
-// const Exchange = artifacts.require("Exchange");
+const Lottery = artifacts.require("Lottery");
+const Attacker = artifacts.require("Attacker");
 
-// module.exports = async function(deployer) {
+module.exports = async function(deployer) {
+  const accounts = await web3.eth.getAccounts()
 
-//   const accounts = await web3.eth.getAccounts()
-//   await deployer.deploy(Token);
+  await deployer.deploy(Lottery);
 
-//   const feeAccount = accounts[0]
-//   const feePercent = 10
-//   await deployer.deploy(Exchange, feeAccount, feePercent)
+  const seed = 13
+  // const feePercent = 10
 
-// };
+  await deployer.deploy(Attacker, seed);//, feeAccount, feePercent)
+};
