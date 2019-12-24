@@ -1,13 +1,9 @@
-const Lottery = artifacts.require("Lottery");
-const Attacker = artifacts.require("Attacker");
-
+const KeyManager = artifacts.require("KeyManager");
+const Identity = artifacts.require("Identity");
 module.exports = async function(deployer) {
   const accounts = await web3.eth.getAccounts()
+  const management = accounts[0]
 
-  await deployer.deploy(Lottery);
-
-  const seed = 13
-  // const feePercent = 10
-
-  await deployer.deploy(Attacker, seed);//, feeAccount, feePercent)
+  await deployer.deploy(Identity, management);
+  await deployer.deploy(KeyManager);
 };
